@@ -1,0 +1,12 @@
+.form_tip_sign{
+  font-size: 2em;
+  -webkit-transition: color 0.8s; /* Safari */
+  transition: color 0.8s;
+  cursor:pointer;
+}
+
+.form_tip_sign:hover{
+  color:#0b90f4;
+  -webkit-transition: color 0.8s; /* Safari */
+  transition: color 0.8s;
+}
