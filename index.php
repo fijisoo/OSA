@@ -16,7 +16,7 @@ echo '<thead>';
               echo '<th>UDOSTĘPNIANIE<span style="font-size: 1em;" class="badge btn-danger"></span></th>';
               echo '<th>PRAWA DO ZBIORU/ZESPOŁU<span style="font-size: 1em;" class="badge btn-danger"></span></th>';
               echo '<th>INDEKSY<span style="font-size: 1em;" class="badge btn-danger"></span></th>';
-              echo '<th>DANE <span style="font-size: 1em;" class="badge btn-danger"></span></th>';
+              echo '<th>DANE DODATKOWE<span style="font-size: 1em;" class="badge btn-danger"></span></th>';
             echo '</tr>';
            echo '</thead>';
          echo '</table>';

@@ -47,7 +47,7 @@
 
             <div id="dodaj_input" class="col-md-10 form-inline">
                 <label for="dodaj_input" style="padding-left: 0;" class="col-md-10 col-form-label">DATA *</label><br/>
-                <div class="col-md-10 row form-group">
+                <div id = "dodaj_przedzial_buttons" class="col-md-10 row form-group">
                 <button id="dodaj_przedzial" class="col-md-5 btn btn-primary" onclick="przedzial()">Dodaj przedział</button>
                 <button id="dodaj_przedzial2" class="col-md-5 btn btn-primary" onclick="pojedyncza()">Dodaj pojedynczą</button>
                 </div>
@@ -114,6 +114,7 @@
                                 var p = document.getElementById(this.parentId);
                                 var newElement = document.createElement(this.elementTag);
                                 newElement.setAttribute('id', this.elementId);
+                                newElement.setAttribute('style', 'margin-top: 10px');
                                 newElement.setAttribute('class','classId_'+_classId +' '+ _class+' input-group');
                                 return p.appendChild(newElement);
                             }
@@ -121,6 +122,7 @@
                                 var p = document.getElementById(this.parentId);
                                 var newElement = document.createElement(this.elementTag);
                                 newElement.setAttribute('id', this.elementId);
+                                newElement.setAttribute('style', 'margin-top: 10px');
                                 newElement.setAttribute('class','classId_'+ _classId + ' col-md-11 input-group');
                                 return p.appendChild(newElement);
                             }
@@ -128,27 +130,32 @@
                                 var p = document.getElementById(this.parentId);
                                 var newElement = document.createElement(this.elementTag);
                                 newElement.setAttribute('id', this.elementId);
+                                newElement.setAttribute('style', 'margin-top: 10px');
                                 newElement.setAttribute('class', 'classId_'+ _function +' col-md-1 btn btn-danger glyphicon glyphicon glyphicon-minus');
                                 newElement.setAttribute('onclick', 'usun('+ _function +')');
                                 return p.appendChild(newElement);
                             }
-
                     }
 //                                  parentId, elementTag, elementId, elementName, elementValue, elementType, contentHTML
                     var counter_input = 0;
-                    var counter_div = 0;
+                    var counter_div = 1;
 
                     function pojedyncza(){
                         counter_input++;
-                        counter_div++;
                         new wstaw_element('dodaj_input', 'div', 'form_input_7'+counter_input,'','','', '').dodaj_div_dla_pojedynczego(counter_div);
                         new wstaw_element('form_input_7'+counter_input, 'span', '','','','', 'data roczna:').dodaj_span();
                         new wstaw_element('form_input_7'+counter_input, 'input', counter_input,'rok_input', '','number', '').dodaj_pojedynczy_input();
                         new wstaw_element('dodaj_input', 'button', 'button'+counter_div,'','','','').button(counter_div);
+
+                        if(counter_div >= 10){
+                            document.getElementById('dodaj_przedzial_buttons').setAttribute("style","visibility: hidden");
+                        }
+                        counter_div++;
+
                     }
                     function przedzial(){
                         counter_input++;
-                        counter_div++;
+
                         new wstaw_element('dodaj_input', 'div', 'form_input_7'+counter_input,'','','', '').dodaj_div('col-md-5', counter_div);
                         new wstaw_element('form_input_7'+counter_input, 'span', '','','','', 'zakres od:').dodaj_span();
                         new wstaw_element('form_input_7'+counter_input, 'input', counter_input,'rok_input', '-','number', '').dodaj_podwojny_input();
@@ -158,12 +165,24 @@
                         new wstaw_element('form_input_7'+counter_input, 'span', '','','','', 'do:').dodaj_span();
                         new wstaw_element('form_input_7'+counter_input, 'input', counter_input,'rok_input', '','number', '').dodaj_podwojny_input();
                         new wstaw_element('dodaj_input', 'button', 'button'+counter_div,'','','','').button(counter_div);
+
+                        if(counter_div > 9){
+                            document.getElementById('dodaj_przedzial_buttons').setAttribute("style","visibility: hidden");
+                        }
+                        counter_div++;
+
                     }
 
                     function usun(id){
+//                        console.log(id);
                         var p = document.getElementsByClassName('classId_'+id);
                         while (p.length > 0) {
                             p[0].remove();
+                        }
+                        counter_div--;
+                        console.log(counter_div);
+                        if(counter_div === 10){
+                            document.getElementById('dodaj_przedzial_buttons').setAttribute("style","visibility: visible");
                         }
                     }
 
