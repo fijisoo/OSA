@@ -1,9 +1,11 @@
 <?php
 
-$text = '
+$cms_zb_zesp_form_dane_podst = '
 
 <div class="container">
+<fieldset '.$diabled.'>
 
+<div class="container">
     <div class="form-group row" style="position: relative">
             <div class="col-form-label col-md-2 col-sm-3 col-xs-6">
                 <!--<label style="padding-left: 0px;" class="col-md-12 col-form-label">POZIOM OPISU</label><br/>-->
@@ -12,19 +14,19 @@ $text = '
             <span style="font-size: 25px; position: absolute; margin-top: 23px;" data-toggle="collapse" data-target="#form_text_1_description" class="form_tip_sign glyphicon glyphicon-question-sign"></span>
             <div id="form_text_1_description" class="form_collapse_class collapse aller_light col-md-12">dawdawdawdawdawdawdawd_DESCRIPTOR1</div>
     </div>
-    <div class="form-group row form-group-sm">
-        <label class="col-md-2 col-form-label" style="margin-top: 7px">SYGNATURA*</label>
-        <label id="PL_1001" class="col-md-1 col-form-label" style="margin-top: 7px">PL_1001_</label>
-        <div class="col-md-8">
-            <input type="text" maxlength="320" class="form-control col-md-8" id="form_input_id2">
-        </div>
-        <span style="font-size: 25px;" data-toggle="collapse" data-target="#form_text_2_description" class="form_tip_sign glyphicon glyphicon-question-sign"></span>
-        <div id="form_text_2_description" class="form_collapse_class collapse aller_light col-md-12">dawdawdawdawdawdawdawd_DESCRIPTOR2</div>
-    </div>
+
     <div style="padding-left: 0px;" class="col-md-6">
         <div class="form-group row">
-            <label class="col-md-12 col-form-label">SYGNATURA DAWNA</label><br/>
-
+            <label for="form_input_2" class="col-md-3 col-form-label" style="margin-top: 7px">SYGNATURA*</label>
+            <label for="form_input_2" id="PL_1001" class="col-md-9 col-form-label" style="margin-top: 7px">PL_1001_</label>
+            <div class="col-md-10">
+                <input type="text" maxlength="320" placeholder="wprowadz numer zbioru" onfocus="form_input_error(2)" class="form-control col-md-8" id="form_input_2">
+            </div>
+            <span style="font-size: 25px;" data-toggle="collapse" data-target="#form_text_2_description" class="form_tip_sign glyphicon glyphicon-question-sign"></span>
+            <div id="form_text_2_description" class="form_collapse_class collapse aller_light col-md-12">dawdawdawdawdawdawdawd_DESCRIPTOR2</div>
+        </div>
+        <div class="form-group row">
+            <label for="form_input_3" class="col-md-12 col-form-label">SYGNATURA DAWNA</label><br/>
             <div class="col-md-10">
                 <input type="text" maxlength="320" onfocus="form_input_error(2)" class="form-control col-md-8" id="form_input_3">
             </div>
@@ -32,38 +34,156 @@ $text = '
                 <div id="form_text_3_description" class="form_collapse_class collapse aller_light col-md-12">dawdawdawdawdawdawdawd_DESCRIPTOR3</div>
         </div>
         <div class="form-group row">
-            <label class="col-md-12 col-form-label">TYTUŁ *</label><br/>
+            <label for="form_input_4" class="col-md-12 col-form-label">TYTUŁ *</label><br/>
             <div class="col-md-10">
-                <input type="text" maxlength="320" onfocus="form_input_error(2)" class="form-control col-md-8" id="form_input_4">
+                <input type="text" maxlength="320" placeholder="TYTUŁ *" onfocus="form_input_error(2)" class="form-control col-md-8" id="form_input_4">
             </div>
                 <span style="font-size: 25px;" data-toggle="collapse" data-target="#form_text_4_description" class="form_tip_sign glyphicon glyphicon-question-sign"></span>
                 <div id="form_text_4_description" class="form_collapse_class collapse aller_light col-md-12">dawdawdawdawdawdawdawd_DESCRIPTOR4</div>
         </div>
         <div class="form-group row">
-            <label class="col-md-12 col-form-label">DATA *</label><br/>
+            <label for="form_input_4" class="col-md-12 col-form-label">TYTUŁ DAWNY</label><br/>
             <div class="col-md-10">
-                <input type="month" maxlength="320" onfocus="form_input_error(2)" class="form-control col-md-8" id="form_input_5">
+                <input type="text" maxlength="320" placeholder="TYTUŁ" onfocus="form_input_error(2)" class="form-control col-md-8" id="form_input_41">
+            </div>
+                <span style="font-size: 25px;" data-toggle="collapse" data-target="#form_text_41_description" class="form_tip_sign glyphicon glyphicon-question-sign"></span>
+                <div id="form_text_41_description" class="form_collapse_class collapse aller_light col-md-12">dawdawdawdawdawdawdawd_DESCRIPTOR41</div>
+        </div>
+        <div class="form-group row">
+
+            <div id="dodaj_input" class="col-md-10 form-inline">
+                <label for="dodaj_input" style="padding-left: 0;" class="col-md-10 col-form-label">DATA *</label><br/>
+                <div class="col-md-10 row form-group">
+                <button id="dodaj_przedzial" class="col-md-5 btn btn-primary" onclick="przedzial()">Dodaj przedział</button>
+                <button id="dodaj_przedzial2" class="col-md-5 btn btn-primary" onclick="pojedyncza()">Dodaj pojedynczą</button>
+                </div>
             </div>
             <span style="font-size: 25px;" data-toggle="collapse" data-target="#form_text_5_description" class="form_tip_sign glyphicon glyphicon-question-sign"></span>
-            <div id="form_text_5_description" class="form_collapse_class collapse aller_light col-md-12">dawdawdawdawdawdawdawd_DESCRIPTOR5</div>
+
+            <script>
+                    function wstaw_element(parentId, elementTag, elementId, elementName, elementValue, elementType, contentHTML){
+                        if (!(this instanceof wstaw_element)) return new wstaw_element((parentId, elementTag, elementId, elementName, elementValue, elementType, contentHTML));
+                        if (parentId) this.parentId = parentId;
+                        if (elementTag) this.elementTag = elementTag;
+                        if (elementValue) this.elementValue = elementValue;
+                        if (elementId) this.elementId = elementId;
+                        if (elementName) this.elementName = elementName;
+                        if (contentHTML) this.contentHTML = contentHTML;
+                        if (contentHTML) this.contentHTML = contentHTML;
+                        if (contentHTML) this.elementType = elementType;
+
+
+                        this.dodaj_span = function(){
+                            var p = document.getElementById(this.parentId);
+                            var newElement = document.createElement(this.elementTag);
+                            newElement.setAttribute(\'class\', \'input-group-addon\');
+                            newElement.innerHTML = this.contentHTML;
+                            return p.appendChild(newElement);
+
+                        }
+                        this.dodaj_pojedynczy_input = function(){
+                            var p = document.getElementById(this.parentId);
+                            var newElement = document.createElement(this.elementTag);
+                            newElement.setAttribute(\'name\', this.elementName);
+                            newElement.setAttribute (\'type\', this.elementType);
+                            newElement.setAttribute(\'id\', this.elementId);
+                            newElement.setAttribute(\'placeholder\', \'wprowadź rok\');
+                            newElement.setAttribute(\'class\', \'form-control\');
+                            return p.appendChild(newElement);
+                        }
+                        this.dodaj_podwojny_input = function(){
+                            var p = document.getElementById(this.parentId);
+                            var newElement = document.createElement(this.elementTag);
+                            newElement.setAttribute(\'name\', this.elementName);
+                            newElement.setAttribute (\'type\', this.elementType);
+                            newElement.setAttribute(\'id\', this.elementId);
+                            newElement.setAttribute(\'placeholder\', \'wprowadź rok\');
+                            newElement.setAttribute(\'class\', \'form-control\');
+                            return p.appendChild(newElement);
+                        }
+                            this.dodaj_div = function(_class, _classId){
+                                var p = document.getElementById(this.parentId);
+                                var newElement = document.createElement(this.elementTag);
+                                newElement.setAttribute(\'id\', this.elementId);
+                                newElement.setAttribute(\'class\',\'classId_\'+_classId +\' \'+ _class+\' input-group\');
+                                return p.appendChild(newElement);
+                            }
+                            this.dodaj_div_dla_pojedynczego = function(_classId){
+                                var p = document.getElementById(this.parentId);
+                                var newElement = document.createElement(this.elementTag);
+                                newElement.setAttribute(\'id\', this.elementId);
+                                newElement.setAttribute(\'class\',\'classId_\'+ _classId + \' col-md-11 input-group\');
+                                return p.appendChild(newElement);
+                            }
+                            this.button = function(_function){
+                                var p = document.getElementById(this.parentId);
+                                var newElement = document.createElement(this.elementTag);
+                                newElement.setAttribute(\'id\', this.elementId);
+                                newElement.setAttribute(\'class\', \'classId_\'+ _function +\' col-md-1 btn btn-danger glyphicon glyphicon glyphicon-minus\');
+                                newElement.setAttribute(\'onclick\', \'usun(\'+ _function +\')\');
+                                return p.appendChild(newElement);
+                            }
+
+                    }
+//                                  parentId, elementTag, elementId, elementName, elementValue, elementType, contentHTML
+                    var counter_input = 0;
+                    var counter_div = 0;
+
+                    function pojedyncza(){
+                        counter_input++;
+                        counter_div++;
+                        new wstaw_element(\'dodaj_input\', \'div\', \'form_input_7\'+counter_input,\'\',\'\',\'\', \'\').dodaj_div_dla_pojedynczego(counter_div);
+                        new wstaw_element(\'form_input_7\'+counter_input, \'span\', \'\',\'\',\'\',\'\', \'data roczna:\').dodaj_span();
+                        new wstaw_element(\'form_input_7\'+counter_input, \'input\', counter_input,\'rok_input\', \'\',\'number\', \'\').dodaj_pojedynczy_input();
+                        new wstaw_element(\'dodaj_input\', \'button\', \'button\'+counter_div,\'\',\'\',\'\',\'\').button(counter_div);
+                    }
+                    function przedzial(){
+                        counter_input++;
+                        counter_div++;
+                        new wstaw_element(\'dodaj_input\', \'div\', \'form_input_7\'+counter_input,\'\',\'\',\'\', \'\').dodaj_div(\'col-md-5\', counter_div);
+                        new wstaw_element(\'form_input_7\'+counter_input, \'span\', \'\',\'\',\'\',\'\', \'zakres od:\').dodaj_span();
+                        new wstaw_element(\'form_input_7\'+counter_input, \'input\', counter_input,\'rok_input\', \'-\',\'number\', \'\').dodaj_podwojny_input();
+                        counter_input++;
+//                        counter_div++;
+                        new wstaw_element(\'dodaj_input\', \'div\', \'form_input_7\'+counter_input,\'\',\'\',\'\', \'\').dodaj_div(\'col-md-6\', counter_div);
+                        new wstaw_element(\'form_input_7\'+counter_input, \'span\', \'\',\'\',\'\',\'\', \'do:\').dodaj_span();
+                        new wstaw_element(\'form_input_7\'+counter_input, \'input\', counter_input,\'rok_input\', \'\',\'number\', \'\').dodaj_podwojny_input();
+                        new wstaw_element(\'dodaj_input\', \'button\', \'button\'+counter_div,\'\',\'\',\'\',\'\').button(counter_div);
+                    }
+
+                    function usun(id){
+                        var p = document.getElementsByClassName(\'classId_\'+id);
+                        while (p.length > 0) {
+                            p[0].remove();
+                        }
+                    }
+
+                </script>
         </div>
+
+            <div id="form_text_5_description" class="form_collapse_class collapse aller_light col-md-12">
+                dawdawdawdawdawdawdawd_DESCRIPTOR5
+            </div>
         <div class="form-group row">
             <label class="col-md-12 col-form-label">NAZWA TWÓRCY *</label><br/>
             <div class="col-md-10">
                 <!--DOCELOWO ACCEPT INNA WARTOSC. NAZWA TEZ INNA-->
                 <!--<label class="custom-file">-->
-                    <!--<input type="file" id="file" class="custom-file-input">-->
-                    <!--<span class="custom-file-control"></span>-->
+                <!--<input type="file" id="file" class="custom-file-input">-->
+                <!--<span class="custom-file-control"></span>-->
                 <!--</label>-->
                 <button class="btn-success">TUTAJ BUTTON K?</button>
             </div>
-            <span style="font-size: 25px;" data-toggle="collapse" data-target="#form_text_6_description" class="form_tip_sign glyphicon glyphicon-question-sign"></span>
-            <div id="form_text_6_description" class="form_collapse_class collapse aller_light col-md-12">dawdawdawdawdawdawdawd_DESCRIPTOR6</div>
+            <span style="font-size: 25px;" data-toggle="collapse" data-target="#form_text_6_description"
+                  class="form_tip_sign glyphicon glyphicon-question-sign"></span>
+            <div id="form_text_6_description" class="form_collapse_class collapse aller_light col-md-12">
+                dawdawdawdawdawdawdawd_DESCRIPTOR6
+            </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-12 col-form-label">ROZMIAR *</label><br/>
+            <label for="form_input_7" class="col-md-12 col-form-label">ROZMIAR *</label><br/>
                 <div class="col-md-10">
-                    <input type="number" maxlength="320" onfocus="form_input_error(2)" class="form-control col-md-8" id="form_input_6">
+                    <input type="number" maxlength="320" placeholder="ROZMIAR *" onfocus="form_input_error(2)" class="form-control col-md-8" id="form_input_7">
                 </div>
                 <!--INPUT RANGE-->
                 <!--<input type="range" id="rangeInput"-->
@@ -79,8 +199,7 @@ $text = '
             <div id="form_text_7_description" class="form_collapse_class collapse aller_light col-md-12">dawdawdawdawdawdawdawd_DESCRIPTOR7</div>
         </div>
         <div class="form-group row">
-        <label class="col-md-12 col-form-label">Rozmiar fizyczny</label><br/>
-
+        <label for="form_input_8" class="col-md-12 col-form-label">Rozmiar fizyczny</label><br/>
         <div class="col-md-10">
             <input type="text" maxlength="320" placeholder="Rozmiar fizyczny" onfocus="form_input_error(2)" class="form-control col-md-8" id="form_input_8">
         </div>
@@ -154,8 +273,9 @@ $text = '
         </div>
 
     </div>
+      </fieldset>
 </div>
-</body>
+//</body>
 
 ';
 
