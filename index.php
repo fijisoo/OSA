@@ -1,6 +1,7 @@
 <?php
 
-require "libraries/libraries.php";
-require "controler/php/cms_zb_zesp_form.php";
+require "resources/libraries/libraries.php";
+require "sites/cms_zb_zesp_form.php";
+
 
 ?>
